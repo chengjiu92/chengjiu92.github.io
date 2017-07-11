@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-repeat</title>
+
+</head>
+<body ng-app="my">
+<div ng-controller="liList">
+    <ul>
+        <li ng-repeat="item in nameList">
+            <a ng-bind="item.id"></a>
+            <a ng-bind="item.name"></a>
+            <a ng-bind="item.carse"></a>
+        </li>
+    </ul>
+</div>
+<script src="Angular.js"></script>
+<script src="js/repeat.js"></script>
+</body>
+</html>

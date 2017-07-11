@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <div ng-app="shop">
+        <div class="container" ng-controller="first">
+            <table class="table" ng-show="cart.length">
+                <thead>
+                <tr>
+                    <th>产品编号</th>
+                    <th>产品名字</th>
+                    <th>购买数量</th>
+                    <th>产品单价</th>
+                    <th>产品总价</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in cart">
+                        <td ng-bind="item.id"></td>
+                        <td ng-bind="item.name"></td>
+                        <td>
+                            <button type="button" class="btn btn-primary" ng-click="liRepeat(item.id)">-</button>
+                            <input type="text"  ng-model="item.quantity">
+                            <button type="button" class="btn btn-primary" ng-click="liAdd(item.id)">+</button>
+                        </td>
+                        <td ng-bind="item.price"></td>
+                        <td ng-bind="item.price * item.quantity"></td>
+                        <td>
+                            <button type="button" class="btn btn-danger" ng-click="remove(item.id)">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>总价格</td>
+                        <td>{{totalPrice()}}</td>
+                        <td>总购买数量</td>
+                        <td>{{totalQuantity()}}</td>
+                        <td></td>
+                        <td><button type="button" class="btn btn-danger" ng-click="cart=[]">清空</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p ng-hide="cart.length">您的购物车空空如也</p>
+            <img ng-hide="cart.length" ng-src="shop.jpg" alt="">
+        </div>
+    </div>
+</body>
+<script src="Angular.js"></script>
+<script src="js/shop.js"></script>
+</html>
